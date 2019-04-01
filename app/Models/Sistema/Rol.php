@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Sistema;
 
 use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Usuario;
-use App\Models\Permiso;
+use App\Models\Sistema\Usuario;
+use App\Models\Sistema\Permiso;
 
 
 class Rol extends Model

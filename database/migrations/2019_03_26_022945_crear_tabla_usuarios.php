@@ -20,17 +20,12 @@ class CrearTablaUsuarios extends Migration
             $table->string('password');
             $table->tinyInteger('activo')->default(0);          
             $table->string('salud_id')->nullable();
-            //$table->string('tiene_salud_id');
             $table->string('nombre')->nullable();
             $table->string('apellido_paterno')->nullable();
             $table->string('apellido_materno')->nullable();
-            // $table->string('avatar');
             $table->boolean('su')->default(false);
-            
             $table->timestamps();
             $table->softDeletes();
-
-            
 
         });
     

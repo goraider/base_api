@@ -8,7 +8,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use \Config, Carbon\Carbon;
-use App\Models\Usuario;
+use App\Models\Sistema\Usuario;
 
 
 class AutenticacionController extends Controller

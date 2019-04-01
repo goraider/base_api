@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Sistema;
 
 //checar base modelo use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Rol;
+use App\Models\Sistema\Rol;
 
 class Usuario extends Model
 {
