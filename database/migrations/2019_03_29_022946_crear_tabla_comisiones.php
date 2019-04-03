@@ -16,25 +16,37 @@ class CrearTablaComisiones extends Migration
         Schema::create('comisiones', function (Blueprint $table) {
             
             $table->increments('id');
-            $table->integer('usuario_id')->nullable();
-            $table->string('folio')->unique();
-            $table->string('ejercicio');
+            $table->string('motivo_comision');
+            $table->string('no_comision');
+            $table->string('no_memorandum');
+            $table->integer('usuario_id')->unsigned();
+            $table->string('nombre_proyecto')->nullable();
+            $table->decimal('total', 8,2)->change();
+            $table->boolean('es_vehiculo_oficial')->default(false);
+            $table->string('placas')->nullable();
+            $table->string('modelo')->nullable();
+            $table->boolean('status_comision')->default(false);
+            $table->string('funcionario_autoriza_comision')->nullable();
+            $table->string('puesto_autoriza_comision')->nullable();
+
+
+
+            
 
             // $table->integer('tipos_comisiones_id')->unsigned();
             // $table->integer('tipos_viajes_id')->unsigned();
             // $table->integer('descripciones_partidas_id')->unsigned();
             // $table->integer('claves_partidas_id')->unsigned();
-
             
-            $table->date('fecha_actual');
-            $table->date('fecha_captura');
-            $table->date('fecha_entrega');
-            $table->date('fecha_validacion')->nullable();
-            $table->string('motivo_comision');
-            $table->boolean('aprovacion')->default(false);
+            
             $table->timestamps();
             $table->softDeletes();
             
+        });
+
+        Schema::table('comisiones', function($table)
+        {
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
         });
 
         // Schema::table('comisiones', function($table) {

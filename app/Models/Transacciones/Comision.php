@@ -7,7 +7,19 @@ use App\Models\Transacciones\Comision;
 
 class Comision extends Model
 {
-    protected $fillable = ['lugar', 'fecha_salida', 'total'];
+    protected $fillable = [
+        'id', 'motivo_comision',
+        'no_comision', 'no_memorandum',
+        'usuario_id',
+        'nombre_proyecto',
+        'es_vehiculo_oficial',
+        'placas',
+        'modelo',
+        'status_comision',
+        'funcionario_autoriza_comision',
+        'puesto_autoriza_comision',
+        'created_at'
+    ];
 
     public function comision()
     {

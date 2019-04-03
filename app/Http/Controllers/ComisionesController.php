@@ -3,18 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Transacciones\Comision;
+// use App\Models\Sistema\Usuario;
+// use App\Models\Sistema\Rol;
 
 class ComisionesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.Transacciones
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return(Comision::class);
+        // $usuario = new Usuario;
+
+        // return ($usuario->user());
     }
 
 

@@ -23,6 +23,10 @@ class CrearTablaUsuarios extends Migration
             $table->string('nombre')->nullable();
             $table->string('apellido_paterno')->nullable();
             $table->string('apellido_materno')->nullable();
+            $table->string('categoria')->nullable();
+            $table->string('rfc')->nullable();
+            $table->string('curp')->nullable();
+            $table->string('clave_elector')->nullable();            
             $table->boolean('su')->default(false);
             $table->timestamps();
             $table->softDeletes();

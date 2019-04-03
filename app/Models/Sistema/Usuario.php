@@ -8,6 +8,9 @@ use Illuminate\Contracts\Auth\Authenticatable;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Sistema\Rol;
+use App\Models\Sistema\Usuario;
+
+use Illuminate\Support\Facades\DB;
 
 class Usuario extends Model
 {
@@ -15,7 +18,8 @@ class Usuario extends Model
     protected $generarID = false;
     protected $guardarIDUsuario = false;
     protected $fillable = ["id","email","password","activo","salud_id","nombre","apellido_paterno","apellido_materno","su"];
-    
+
+   
     public function roles(){
         return $this->belongsToMany(Rol::class, 'rol_usuario', 'usuario_id', 'rol_id');
     }

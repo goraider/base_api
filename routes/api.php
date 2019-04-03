@@ -19,7 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('iniciar-sesion',            'AutenticacionController@iniciarSesionLocal');
 Route::post('iniciar-sesion-salud-id',   'AutenticacionController@iniciarSesionSaludID');
-
 Route::post('refresh-token',    'AutenticacionController@refreshToken');
 
 Route::resource('comisiones', 'ComisionesController', ['only' => ['index', 'show', 'store', 'update', 'destroy']]);

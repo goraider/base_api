@@ -24,6 +24,7 @@ class AutenticacionController extends Controller
         }
 
         $usuario = Usuario::where('email',$credentials['email'])->first();
+        //dd($usuario);
 
         if(!$usuario) {                
             return response()->json(['error' => 'El usuario esta desactivado'], 401); 
@@ -34,7 +35,7 @@ class AutenticacionController extends Controller
         //     return response()->json(['error' => 'invalid_credentials'], 401); 
         // }
 
-        if(Hash::check($credentials['password'], $usuario->password)){
+        if(Hash::check($credentials['password'], $usuario->password)){     
 
             if(!$usuario->activo) {                
                 return response()->json(['error' => 'El usuario esta desactivado'], 401); 
@@ -50,8 +51,6 @@ class AutenticacionController extends Controller
                 "activo" => $usuario->activo
             ];
 
-            //dd($usuario_data);
-
         
 
             $claims = [
@@ -64,14 +63,14 @@ class AutenticacionController extends Controller
             $factory = JWTFactory::customClaims($claims);
 
             $payload = $factory->make();
-
+    
             //$payload = JWTFactory::make($claims);
             $token = JWTAuth::encode($payload);
 
             return response()->json(['token' => $token->get(), 'usuario'=>$usuario_data], 200);
         
         } else{
-            return response()->json(['error' => 'invalid_credentials'], 401); 
+            return response()->json(['error' => 'invalid_credentials'], 401);
         }
         //Encriptamos el refresh oauth para que no quede 100% expuesto en la aplicacion web
         //$refresh_token_encrypted = Crypt::encrypt($api_response->refresh_token);
