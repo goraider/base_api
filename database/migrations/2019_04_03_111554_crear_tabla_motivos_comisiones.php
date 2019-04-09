@@ -17,7 +17,7 @@ class CrearTablaMotivosComisiones extends Migration
 		{
             
 			$table->increments('id');
-			$table->integer('id_comision')->unsigned();
+			$table->integer('comision_id')->unsigned();
             $table->string('status_observacion')->nullable();
             $table->string('observacion')->nullable();
             $table->date('fecha');
@@ -27,7 +27,7 @@ class CrearTablaMotivosComisiones extends Migration
         
         Schema::table('motivos_comisiones', function($table)
         {
-            $table->foreign('id_comision')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('comision_id')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

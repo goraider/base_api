@@ -17,7 +17,7 @@ class CrearTablaClavesPresupuestarias extends Migration
 		{
             
 			$table->increments('id');
-			$table->integer('id_comision')->unsigned();
+			$table->integer('comision_id')->unsigned();
             $table->string('nombre')->nullable();
             $table->string('sufijo')->nullable();
             $table->timestamps();
@@ -26,7 +26,7 @@ class CrearTablaClavesPresupuestarias extends Migration
         
         Schema::table('claves_presupuestarias', function($table)
         {
-            $table->foreign('id_comision')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('comision_id')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

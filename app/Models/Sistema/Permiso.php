@@ -9,9 +9,7 @@ use App\Models\Sistema\Rol;
 class Permiso extends Model
 {
     use SoftDeletes;
-    protected $generarID = false;
-    protected $guardarIDServidor = false;
-    protected $guardarIDUsuario = false;
+
     protected $fillable = ["id","descripcion","grupo","su","created_at","updated_at"];
     
     public function roles(){

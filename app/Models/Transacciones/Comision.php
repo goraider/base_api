@@ -3,13 +3,16 @@
 namespace App\Models\Transacciones;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Transacciones\Comision;
+use Illuminate\Database\Eloquent\Collection;
 
 class Comision extends Model
 {
+
     protected $fillable = [
-        'id', 'motivo_comision',
-        'no_comision', 'no_memorandum',
+        'id',
+        'motivo_comision',
+        'no_comision',
+        'no_memorandum',
         'usuario_id',
         'nombre_proyecto',
         'es_vehiculo_oficial',
@@ -20,14 +23,27 @@ class Comision extends Model
         'puesto_autoriza_comision',
         'created_at'
     ];
+    
+    public $table = "comisiones";
 
-    public function comision()
+    public function lugaresComision()
     {
-        return $this->belongsTo(Comision::class);
+        return $this->hasMany(LugarComision::class);
     }
 
-    public function lugar()
-    {
-        return $this->belongsTo();
-    }
+//     public function motivosComision()
+//     {
+//         return $this->hasMany(MotivoComision::class);
+//     }
+
+//     public function formatosComprobacionComision()
+//     {
+//         return $this->hasMany(FormatosComprobacionComision::class);
+//     }
+// //checar si solo uno o tendra muchas claves la comision
+//     public function clavePresupuestalComision()
+//     {
+//         return $this->hasMany(ClavePresupuestalComision::class);
+//     }
+
 }

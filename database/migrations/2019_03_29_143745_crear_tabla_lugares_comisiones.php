@@ -17,7 +17,7 @@ class CrearTablaLugaresComisiones extends Migration
 		{
             
 			$table->increments('id');
-			$table->integer('id_comision')->unsigned();
+			$table->integer('comision_id')->unsigned();
             $table->string('sede'); //a que lugar del instituto o lugar que asistira
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
@@ -30,7 +30,7 @@ class CrearTablaLugaresComisiones extends Migration
         
         Schema::table('lugares_comisiones', function($table)
         {
-            $table->foreign('id_comision')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('comision_id')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
         });
 
     }

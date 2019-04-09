@@ -13,10 +13,6 @@ class Rol extends Model
 {
     use SoftDeletes;
     
-    protected $generarID = false;
-    protected $guardarIDServidor = false;
-    protected $guardarIDUsuario = false;
-    public $incrementing = true;
     
     protected $table = 'roles';  
     protected $fillable = ["id","nombre"];

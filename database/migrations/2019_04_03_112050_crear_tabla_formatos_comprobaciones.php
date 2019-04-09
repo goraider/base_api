@@ -17,7 +17,7 @@ class CrearTablaFormatosComprobaciones extends Migration
 		{
             
 			$table->increments('id');
-			$table->integer('id_comision')->unsigned();
+			$table->integer('comision_id')->unsigned();
             $table->string('tipo_comprobacion');
             $table->string('url');
             $table->date('fecha');
@@ -27,7 +27,7 @@ class CrearTablaFormatosComprobaciones extends Migration
         
         Schema::table('formatos_comprobaciones', function($table)
         {
-            $table->foreign('id_comision')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('comision_id')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
