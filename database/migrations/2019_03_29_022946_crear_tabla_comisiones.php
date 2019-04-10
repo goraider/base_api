@@ -14,7 +14,7 @@ class CrearTablaComisiones extends Migration
     public function up()
     {
         Schema::create('comisiones', function (Blueprint $table) {
-            
+
             $table->increments('id');
             $table->string('motivo_comision');
             $table->string('no_comision');
@@ -23,6 +23,7 @@ class CrearTablaComisiones extends Migration
             $table->string('nombre_proyecto')->nullable();
             $table->decimal('total', 8,2)->change();
             $table->boolean('es_vehiculo_oficial')->default(false);
+            $table->string('tipo_comision', 5)->comment('para identificacion del tipo de comision y su flujo');
             $table->string('placas')->nullable();
             $table->string('modelo')->nullable();
             $table->boolean('status_comision')->default(false);
@@ -31,17 +32,17 @@ class CrearTablaComisiones extends Migration
 
 
 
-            
+
 
             // $table->integer('tipos_comisiones_id')->unsigned();
             // $table->integer('tipos_viajes_id')->unsigned();
             // $table->integer('descripciones_partidas_id')->unsigned();
             // $table->integer('claves_partidas_id')->unsigned();
-            
-            
+
+
             $table->timestamps();
             $table->softDeletes();
-            
+
         });
 
         Schema::table('comisiones', function($table)
