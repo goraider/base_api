@@ -22,3 +22,5 @@ Route::post('iniciar-sesion-salud-id',   'AutenticacionController@iniciarSesionS
 Route::post('refresh-token',    'AutenticacionController@refreshToken');
 
 Route::resource('comisiones', 'ComisionController');
+
+Route::resource('permisos', 'PermisoController');

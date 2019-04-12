@@ -3,16 +3,27 @@
 namespace App\Models\Sistema;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Sistema\Rol;
+
 
 class Permiso extends Model
 {
-    use SoftDeletes;
+
+    protected $hidden = ['pivot'];
 
     protected $fillable = ["id","descripcion","grupo","su","created_at","updated_at"];
 
-    public function roles(){
-		return $this->belongsToMany(Rol::class, 'permiso_rol', 'permiso_id', 'rol_id');
-	}
+    public $table = 'permisos';
+
+    public function PermisoRoles(){
+
+      return $this->belongsToMany(Rol::class, 'permiso_rol', 'rol_id', 'permiso_id');
+      
+    }
+    
+    public function PermisoUsuarios(){
+
+      return $this->belongsToMany(Permiso::class, 'permiso_usuario', 'permiso_id', 'usuario_id');
+      
+    }
+    
 }

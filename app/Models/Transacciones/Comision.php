@@ -16,6 +16,7 @@ class Comision extends Model
         'usuario_id',
         'nombre_proyecto',
         'es_vehiculo_oficial',
+        'tipo_comision',
         'placas',
         'modelo',
         'status_comision',

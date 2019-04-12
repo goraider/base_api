@@ -58,5 +58,19 @@ class PermisosSeeder extends Seeder
             ]
         ]);
 
+        //insertar tabla permiso usuario
+        DB::table('permiso_usuario')->insert([
+            [
+                'permiso_id' => 'F2jsNyKuJ1UighVbq4jAUOIJDuyZJN5b',
+                'usuario_id' => 1,
+                'denegar' => 0
+            ],
+            [
+                'permiso_id' => '9Kfw8wmzys6kgmr4g3qX2Cdk8ak1QZEt',
+                'usuario_id' => 1,
+                'denegar' => 1
+            ]
+        ]);
+
     }
 }

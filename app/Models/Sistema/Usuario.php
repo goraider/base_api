@@ -3,26 +3,25 @@
 namespace App\Models\Sistema;
 
 //checar base modelo use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Contracts\Auth\Authenticatable;
-
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Sistema\Rol;
-use App\Models\Sistema\Usuario;
-
-use Illuminate\Support\Facades\DB;
 
 class Usuario extends Model
 {
-    use SoftDeletes;
-    protected $generarID = false;
-    protected $guardarIDUsuario = false;
+
+    protected $hidden = ['pivot'];
+
     protected $fillable = ["id","email","password","activo","salud_id","nombre","apellido_paterno","apellido_materno","su"];
 
+    public $table = 'usuarios';
    
-    public function roles(){
+    public function rolesUsuario(){
         return $this->belongsToMany(Rol::class, 'rol_usuario', 'usuario_id', 'rol_id');
     }
+
+    public function permisosUsuario(){
+        return $this->belongsToMany(Permiso::class, 'permiso_usuario', 'usuario_id', 'permiso_id');
+    }
+    
     
     // public function log(){
     //     return $this->hasMany('App\Models\LogInicioSesion','usuario_id');

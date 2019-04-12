@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaPivotePermisoRol extends Migration
+class CrearTablaPivotePermisoUsuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CrearTablaPivotePermisoRol extends Migration
      */
     public function up()
     {
-        Schema::create('permiso_rol', function (Blueprint $table) {
-
-			$table->string('permiso_id', 32);
-			$table->integer('rol_id')->unsigned();
+        Schema::create('permiso_usuario', function (Blueprint $table) {
+            		
+            $table->string('permiso_id', 32);
+            $table->integer('usuario_id')->unsigned();
+            $table->tinyInteger('denegar')->default(0);  
 
 			$table->foreign('permiso_id')
                   ->references('id')->on('permisos')
                   ->onDelete('cascade');
 
-			$table->foreign('rol_id')
-                  ->references('id')->on('roles')
+            $table->foreign('usuario_id')
+                  ->references('id')->on('usuarios')
+                  ->onUpdate('cascade')
                   ->onDelete('cascade');
         });
     }
@@ -35,6 +37,6 @@ class CrearTablaPivotePermisoRol extends Migration
      */
     public function down()
     {
-        Schema::drop('permiso_rol');
+        Schema::drop('permiso_usuario');
     }
 }

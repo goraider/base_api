@@ -69,6 +69,7 @@ class ComisionController extends Controller
         $comision->usuario_id  = $datos->usuario_id;
         $comision->nombre_proyecto  = $datos->nombre_proyecto;
         $comision->es_vehiculo_oficial  = $datos->es_vehiculo_oficial;
+        $comision->tipo_comision  = $datos->tipo_comision;
         
         if($comision->save()){
             if(property_exists($datos, "lugares_comision")){
