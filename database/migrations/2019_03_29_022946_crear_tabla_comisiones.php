@@ -29,6 +29,9 @@ class CrearTablaComisiones extends Migration
             $table->boolean('status_comision')->default(false);
             $table->string('funcionario_autoriza_comision')->nullable();
             $table->string('puesto_autoriza_comision')->nullable();
+            // agregados recientemente
+            $table->date('fecha');
+            $table->string('organo_responsable', 250);
 
 
 
