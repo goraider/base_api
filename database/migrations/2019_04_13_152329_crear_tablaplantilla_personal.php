@@ -14,7 +14,12 @@ class CrearTablaplantillaPersonal extends Migration
     public function up()
     {
         Schema::create('plantillas_personal', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('nombre', 80);
+            $table->string('apellido_paterno', 80);
+            $table->string('apellido_materno', 80);
+            $table->string('categiria', 50);
+            $table->string('rfc', 50);
             $table->timestamps();
         });
     }
