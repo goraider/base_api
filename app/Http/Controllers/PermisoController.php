@@ -17,7 +17,8 @@ class PermisoController extends Controller
     public function index()
     {
 
-        $permiso = Permiso::with('PermisoUsuarios')->get();
+         $permiso = Permiso::with('permisoRoles')->get();
+        
         return $permiso;
 
     }

@@ -8,21 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Permiso extends Model
 {
 
-    protected $hidden = ['pivot'];
+    //protected $hidden = ['pivot'];
 
     protected $fillable = ["id","descripcion","grupo","su","created_at","updated_at"];
 
     public $table = 'permisos';
 
-    public function PermisoRoles(){
+    public function permisoRoles(){
 
-      return $this->belongsToMany(Rol::class, 'permiso_rol', 'rol_id', 'permiso_id');
+      return $this->belongsToMany(Rol::class, 'permiso_rol', 'permiso_id', 'rol_id');
       
     }
     
-    public function PermisoUsuarios(){
+    public function permisoUsuarios(){
 
-      return $this->belongsToMany(Permiso::class, 'permiso_usuario', 'permiso_id', 'usuario_id');
+      return $this->belongsToMany(Usuario::class, 'permiso_usuario', 'permiso_id', 'usuario_id');
       
     }
     
