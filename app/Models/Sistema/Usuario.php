@@ -14,11 +14,11 @@ class Usuario extends Model
 
     public $table = 'usuarios';
    
-    public function rolesUsuario(){
+    public function usuarioRoles(){
         return $this->belongsToMany(Rol::class, 'rol_usuario', 'usuario_id', 'rol_id');
     }
 
-    public function permisosUsuario(){
+    public function usuarioPermisos(){
         return $this->belongsToMany(Permiso::class, 'permiso_usuario', 'usuario_id', 'permiso_id');
     }
     
