@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaMotivosComisiones extends Migration
+class CrearTablaObservacionesComisiones extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CrearTablaMotivosComisiones extends Migration
      */
     public function up()
     {
-        Schema::create('motivos_comisiones', function(Blueprint $table)
+        Schema::create('observaciones_comisiones', function(Blueprint $table)
 		{
             
 			$table->increments('id');
@@ -25,7 +25,7 @@ class CrearTablaMotivosComisiones extends Migration
             $table->softDeletes();
         });
         
-        Schema::table('motivos_comisiones', function($table)
+        Schema::table('observaciones_comisiones', function($table)
         {
             $table->foreign('comision_id')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
         });
@@ -38,6 +38,6 @@ class CrearTablaMotivosComisiones extends Migration
      */
     public function down()
     {
-        Schema::drop('motivos_comisiones');
+        Schema::drop('observaciones_comisiones');
     }
 }

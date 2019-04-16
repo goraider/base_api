@@ -20,7 +20,7 @@ class CrearTablaFormatosComprobaciones extends Migration
 			$table->integer('comision_id')->unsigned();
             $table->string('tipo_comprobacion');
             $table->string('url');
-            $table->date('fecha');
+            $table->date('fecha')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
