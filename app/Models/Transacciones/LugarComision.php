@@ -15,6 +15,7 @@ class LugarComision extends Model
         'cuota_diaria',
         'total_dias',
         'es_nacional',
+        'termino',
         'created_at'
     ];
 

@@ -21,25 +21,22 @@ class CrearTablaComisiones extends Migration
             $table->string('no_memorandum');
             $table->integer('usuario_id')->unsigned();
             $table->boolean('es_vehiculo_oficial')->default(false);
-            $table->decimal('total', 8,2)->change();
+            $table->decimal('total', 8,2);
             $table->string('tipo_comision', 5)->comment('para identificacion del tipo de comision y su flujo');
             $table->string('placas')->nullable();
             $table->string('modelo')->nullable();
             $table->boolean('status_comision')->default(false);
             $table->date('fecha');
-            $table->decimal('total_peaje', 18,2)->change()->nullable();
-            $table->decimal('total_combustible', 18,2)->change()->nullable();
-            $table->decimal('total_fletes_mudanza', 18,2)->change()->nullable();
-            $table->decimal('total_pasajes_nacionales', 18,2)->change()->nullable();
-            $table->decimal('total_viaticos_nacionales', 18,2)->change();
-            $table->decimal('total_viaticos_extranjeros', 18,2)->change()->nullable();
-            $table->decimal('total_pasajes_internacionales', 18,2)->change()->nullable();       
-            
+            $table->decimal('total_peaje', 18,2)->nullable();
+            $table->decimal('total_combustible', 18,2)->nullable();
+            $table->decimal('total_fletes_mudanza', 18,2)->nullable();
+            $table->decimal('total_pasajes_nacionales', 18,2)->nullable();
+            $table->decimal('total_viaticos_nacionales', 18,2);
+            $table->decimal('total_viaticos_extranjeros', 18,2)->nullable();
+            $table->decimal('total_pasajes_internacionales', 18,2)->nullable();       
             $table->string('nombre_subdepartamento');
-
             $table->integer('organo_responsable_id')->unsigned();
             $table->integer('plantilla_personal_id')->unsigned();
-
             $table->timestamps();
             $table->softDeletes();
 
