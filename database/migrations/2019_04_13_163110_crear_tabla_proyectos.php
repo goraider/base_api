@@ -17,9 +17,13 @@ class CrearTablaProyectos extends Migration
             $table->increments('id');
             $table->string('nombre_proyecto', 100);
             $table->string('responsable', 150);
-            $table->integer('personal')->unsigned();
-            $table->foreign('personal')->references('id')->on('plantillas_personal')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('plantilla_personal_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('proyectos', function($table)
+        {
+            $table->foreign('plantilla_personal_id')->references('id')->on('plantillas_personal')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
