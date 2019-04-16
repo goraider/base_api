@@ -14,17 +14,29 @@ class Comision extends Model
         'no_comision',
         'no_memorandum',
         'usuario_id',
-        'nombre_proyecto',
         'es_vehiculo_oficial',
+        "fecha",
+        "total",
         'tipo_comision',
         'placas',
         'modelo',
         'status_comision',
-        'funcionario_autoriza_comision',
-        'puesto_autoriza_comision',
-        'created_at'
+        'total_peaje',
+        'total_combustible',
+        'total_fletes_mudanza',
+        'total_pasajes_nacionales',
+        'total_viaticos_nacionales',
+        'total_viaticos_extranjeros',
+        'total_pasajes_internacionales',
+        'nombre_subdepartamento',
+        'organo_responsable_id',
+        'plantilla_personal_id'
+
+
+
+
     ];
-    
+
     public $table = "comisiones";
 
     public function lugaresComision()

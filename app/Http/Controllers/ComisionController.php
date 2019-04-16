@@ -67,10 +67,23 @@ class ComisionController extends Controller
         $comision->no_comision  = $datos->no_comision;
         $comision->no_memorandum  = $datos->no_memorandum;
         $comision->usuario_id  = $datos->usuario_id;
-        $comision->nombre_proyecto  = $datos->nombre_proyecto;
         $comision->es_vehiculo_oficial  = $datos->es_vehiculo_oficial;
+        $comision->fecha  = $datos->fecha;  
+        $comision->total  = $datos->total;
         $comision->tipo_comision  = $datos->tipo_comision;
-        $comision->fecha  = $datos->fecha;
+        $comision->placas  = $datos->placas;
+        $comision->modelo  = $datos->modelo;
+        $comision->status_comision  = $datos->status_comision;
+        $comision->total_peaje  = $datos->total_peaje;
+        $comision->total_combustible  = $datos->total_combustible;
+        $comision->total_fletes_mudanza  = $datos->total_fletes_mudanza;
+        $comision->total_pasajes_nacionales  = $datos->total_pasajes_nacionales;
+        $comision->total_viaticos_nacionales  = $datos->total_viaticos_nacionales;
+        $comision->total_viaticos_extranjeros  = $datos->total_viaticos_extranjeros;
+        $comision->total_pasajes_internacionales  = $datos->total_pasajes_internacionales;
+        $comision->nombre_subdepartamento  = $datos->nombre_subdepartamento;  
+        $comision->organo_responsable_id  = $datos->organo_responsable_id;
+        $comision->plantilla_personal_id  = $datos->plantilla_personal_id;
         
         
         if($comision->save()){
@@ -91,6 +104,8 @@ class ComisionController extends Controller
                             $lugar->cuota_diaria          = $value->cuota_diaria;
                             $lugar->total_dias            = $value->total_dias;
                             $lugar->es_nacional           = $value->es_nacional;
+                            $lugar->periodo               = $value->periodo;
+                            $lugar->termino               = $value->termino;
                             $lugar->save();
                     }
                 }
