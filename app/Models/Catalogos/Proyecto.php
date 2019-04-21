@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $responsable
  * @property string $created_at
  * @property string $updated_at
- * @property PlantillasPersonal $plantillasPersonal
+ * @property PlantillaPersonal $plantillasPersonal
  */
 class Proyecto extends Model
 {
@@ -23,8 +23,8 @@ class Proyecto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function plantillasPersonal()
+    public function plantillaPersonal()
     {
-        return $this->belongsTo('App\PlantillasPersonal', 'plantilla_personal_id');
+        return $this->belongsTo('App\Models\Catalogos\PlantillaPersonal', 'plantilla_personal_id');
     }
 }
