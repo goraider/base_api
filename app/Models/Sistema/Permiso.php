@@ -5,7 +5,7 @@ namespace App\Models\Sistema;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Permiso extends Model
+class Permisos extends Model
 {
 
     //protected $hidden = ['pivot'];
