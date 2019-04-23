@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Catalogos\Subdepartamento;
 
 class SubDepartamentoController extends Controller
 {
@@ -13,7 +14,27 @@ class SubDepartamentoController extends Controller
      */
     public function index()
     {
-        //
+
+        try
+        {
+            //mostrar la informacion
+            $subdepto = Subdepartamento::with('organoResponsable')->get();
+            $data = $subdepto->toArray();
+
+            $response =
+            [
+                'success' => true,
+                'data' => $data,
+                'message' => 'Los subdepartamentos recuperados con éxitos.'
+            ];
+
+            return response()->json($response, 200);
+        }
+        catch(Exception $e)
+        {
+            return Response::json(['error' => $e->getMessage(), 'code' => 409], 409);
+        }
+
     }
 
     /**

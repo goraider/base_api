@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Catalogos\OrganoResponsable;
 
 class OrganoResponsableController extends Controller
 {
@@ -13,7 +14,26 @@ class OrganoResponsableController extends Controller
      */
     public function index()
     {
-        //
+
+        try
+        {
+            // mostrar la información
+            $organoRes = OrganoResponsable::all();
+            $data      = $organoRes->toArray();
+
+            $response =
+            [
+                'success' => true,
+                'data' => $data,
+                'message' => ''
+            ];
+
+            return response()->json($response, 200);
+        }
+        catch(Exception $e)
+        {
+            return Response::json(['error' => $e->getMessage(), 'code' => 409], 409);
+        }
     }
 
     /**
