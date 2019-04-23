@@ -60,8 +60,9 @@ class OrganoResponsableController extends Controller
             // el metodo de almacenar el catalogo
             $inputs = Input::json()->all();
             $data = OrganoResponsable::create($inputs);
+            $datas = $data->toArray();
 
-            return Response::json([ 'data' => $data ],200);
+            return Response::json([ 'data' => $datas ],200);
         }
         catch(Exception $e)
         {

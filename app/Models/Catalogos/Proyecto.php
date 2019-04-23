@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalogos;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Catalogos\PlantillaPersonal;
 
 /**
  * @property int $id
@@ -25,6 +26,6 @@ class Proyecto extends Model
      */
     public function plantillaPersonal()
     {
-        return $this->belongsTo('App\Models\Catalogos\PlantillaPersonal', 'plantilla_personal_id');
+        return $this->belongsTo(PlantillaPersonal::class, 'plantilla_personal_id');
     }
 }

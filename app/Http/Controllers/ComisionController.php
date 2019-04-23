@@ -20,10 +20,26 @@ class ComisionController extends Controller
      */
     public function index()
     {
-
-                    $comisiones = Comision::with('lugaresComision')->get();
-                    $lugares = LugarComision::with('comisionLugares')->get();
                     //$motivos_comision = MotivoComision::with('motivosComisiones')->get();
+                    try
+                    {
+                        $comisiones = Comision::with('lugaresComision')->get();
+                        $lugares = LugarComision::with('comisionLugares')->get();
+                        $data = $comisiones->toArray();
+
+                        $response =
+                        [
+                            'success'   => true,
+                            'data'      => $data,
+                            'message'   => 'comisiones recuperadas éxitosamente'
+                        ];
+
+                        return response()->json($response, 200);
+                    }
+                    catch(Exception $e)
+                    {
+                        return Response::json(['error' => $e->getMessage(), 'code' => 409], 409);
+                    }
 
 
 
@@ -33,7 +49,7 @@ class ComisionController extends Controller
                     // ->join('comisiones', 'comisiones.id', '=', 'lugares_comisiones.id_comision')
                     // ->get();
 
-                    return $comisiones;
+                    //return $comisiones;
                     // return $com;
 
 
