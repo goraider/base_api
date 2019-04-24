@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             UsuariosSeeder::class,
             PermisosSeeder::class,
             RolesSeeder::class,
+            RoleTableSeeder::class,
         ]);
     }
 
