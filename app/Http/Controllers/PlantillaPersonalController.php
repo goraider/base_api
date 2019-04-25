@@ -20,14 +20,8 @@ class PlantillaPersonalController extends Controller
             //mostrar los datos de plantilla personal
             $plantilla = PlantillaPersonal::with('comision')->get();
             $data = $plantilla->toArray();
-            $response =
-            [
-                'success' => true,
-                'data' => $data,
-                'message' => 'Plantilla de personal recuperados con éxito'
-            ];
 
-            return response()->json($response, 200);
+            return response()->json($data, 200);
         }
         catch(Exception $e)
         {

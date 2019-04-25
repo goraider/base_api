@@ -27,14 +27,7 @@ class ComisionController extends Controller
                         $lugares = LugarComision::with('comisionLugares')->get();
                         $data = $comisiones->toArray();
 
-                        $response =
-                        [
-                            'success'   => true,
-                            'data'      => $data,
-                            'message'   => 'comisiones recuperadas éxitosamente'
-                        ];
-
-                        return response()->json($response, 200);
+                        return response()->json($data, 200);
                     }
                     catch(Exception $e)
                     {

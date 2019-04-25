@@ -21,14 +21,7 @@ class LugarComisionController extends Controller
             $data = $lugar->toArray();
 
             //generamos la respuesta
-            $response =
-            [
-                'success'   => true,
-                'data'      => $data,
-                'message'   => 'Lugar de comision recuperados con éxito'
-            ];
-
-            return response()->json($response, 200);
+            return response()->json($data, 200);
         }
         catch(Exception $e)
         {
