@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalogos;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Transacciones\Comision;
 
 /**
  * @property int $id
@@ -24,7 +25,7 @@ class LugarComision extends Model
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'lugares_comisiones';
@@ -39,6 +40,6 @@ class LugarComision extends Model
      */
     public function comision()
     {
-        return $this->belongsTo('App\Models\Transacciones\Comision', 'comision_id');
+        return $this->belongsTo(Comision::class, 'comision_id');
     }
 }

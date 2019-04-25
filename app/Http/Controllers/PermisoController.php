@@ -18,7 +18,7 @@ class PermisoController extends Controller
     {
 
          $permiso = Permiso::with('permisoRoles')->get();
-        
+
         return $permiso;
 
     }

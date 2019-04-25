@@ -1,8 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalogos;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Transacciones\Comision;
+use App\Models\Catalogos\Proyecto;
 
 /**
  * @property int $id
@@ -20,7 +22,7 @@ class PlantillaPersonal extends Model
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'plantillas_personal';
@@ -35,7 +37,7 @@ class PlantillaPersonal extends Model
      */
     public function comision()
     {
-        return $this->hasMany('App\Models\Transacciones\Comision', 'plantilla_personal_id');
+        return $this->hasMany(Comision::class, 'plantilla_personal_id');
     }
 
     /**
@@ -43,6 +45,6 @@ class PlantillaPersonal extends Model
      */
     public function proyecto()
     {
-        return $this->hasMany('App\Models\Catalogos\Proyecto', 'plantilla_personal_id');
+        return $this->hasMany(Proyecto::class, 'plantilla_personal_id');
     }
 }

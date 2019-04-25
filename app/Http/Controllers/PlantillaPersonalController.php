@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Catalogos\PlantillaPersonal;
 
 class PlantillaPersonalController extends Controller
 {
@@ -13,7 +14,19 @@ class PlantillaPersonalController extends Controller
      */
     public function index()
     {
-        //
+
+        try
+        {
+            //mostrar los datos de plantilla personal
+            $plantilla = PlantillaPersonal::with('comision')->get();
+            $data = $plantilla->toArray();
+
+            return response()->json($data, 200);
+        }
+        catch(Exception $e)
+        {
+            return Response::json(['error' => $e->getMessage(), 'code' => 409], 409);
+        }
     }
 
     /**

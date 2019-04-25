@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalogos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,7 +18,7 @@ class OrganoResponsable extends Model
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'organos_responsables';

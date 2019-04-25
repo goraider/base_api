@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalogos;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Catalogos\OrganoResponsable;
 
 /**
  * @property int $id
@@ -24,6 +25,6 @@ class Subdepartamento extends Model
      */
     public function organoResponsable()
     {
-        return $this->belongsTo('App\Models\Catalogos\OrganoResponsable', 'organo_responsable_id');
+        return $this->belongsTo(OrganoResponsable::class, 'organo_responsable_id');
     }
 }
