@@ -24,7 +24,6 @@ Route::post('refresh-token',    'AutenticacionController@refreshToken');
 Route::resource('comisiones', 'ComisionController');
 
 Route::resource('permisos', 'PermisoController');
-<<<<<<< HEAD
 
 Route::prefix('v1')->group(function(){
     Route::post('login', 'Api\AuthController@login');
@@ -33,9 +32,3 @@ Route::prefix('v1')->group(function(){
     Route::post('getUser', 'Api\AuthController@getUser');
     });
    });
-=======
-Route::resource('proyectos', 'ProyectoController');
-Route::resource('plantilla-personal', 'PlantillaPersonalController');
-Route::resource('subdepartamento', 'SubDepartamentoController');
-Route::resource('lugar-comision', 'LugarComisionController');
->>>>>>> pruebas_independientes

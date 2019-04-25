@@ -81,7 +81,7 @@ class ComisionController extends Controller
         $comision->categoria    = $datos->categoria;
         $comision->telefono     = $datos->telefono;
 
-        $comision->usuario_id  = $datos->usuario_id;
+        $comision->user_id  = $datos->user_id;
         $comision->es_vehiculo_oficial  = $datos->es_vehiculo_oficial;
         $comision->fecha  = $datos->fecha;
         $comision->total  = $datos->total;
@@ -126,7 +126,7 @@ class ComisionController extends Controller
                 }
             }
 
-            return response()->json(['success' => 'La comision se ha agregado con exito'], 200);
+            return response()->json(['success' => 'La comision se ha agregado con exito', $datos], 200);
 
         }
 
