@@ -66,6 +66,12 @@ class ComisionController extends Controller
         $comision->motivo_comision = $datos->motivo_comision;
         $comision->no_comision  = $datos->no_comision;
         $comision->no_memorandum  = $datos->no_memorandum;
+        
+        $comision->nombre_comisionado = $datos->nombre_comisionado;
+        $comision->rfc          = $datos->rfc;
+        $comision->categoria    = $datos->categoria;
+        $comision->telefono     = $datos->telefono;
+
         $comision->usuario_id  = $datos->usuario_id;
         $comision->es_vehiculo_oficial  = $datos->es_vehiculo_oficial;
         $comision->fecha  = $datos->fecha;

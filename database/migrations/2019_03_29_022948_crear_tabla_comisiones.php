@@ -19,6 +19,10 @@ class CrearTablaComisiones extends Migration
             $table->string('motivo_comision');
             $table->string('no_comision');
             $table->string('no_memorandum');
+            $table->string('nombre_comisionado');
+            $table->string('rfc');
+            $table->string('categoria');
+            $table->string('telefono');
             $table->integer('usuario_id')->unsigned();
             $table->boolean('es_vehiculo_oficial')->default(false);
             $table->decimal('total', 8,2);
