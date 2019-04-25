@@ -40,9 +40,9 @@ class AuthController extends Controller
    if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
       $user = Auth::user(); 
       $success['token'] =  $user->createToken('AppName')-> accessToken; 
-      $success['name'] =  $user['name']; 
-      //$success['id'] =  $user['id'];
-       return response()->json(['success' => $success], $this-> successStatus); 
+      $success['nombre'] =  $user['name']; 
+      $success['id'] =  $user['id'];
+       return response()->json($success, $this-> successStatus); 
      } else{ 
       return response()->json(['error'=>'Unauthorised'], 401); 
       } 
