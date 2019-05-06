@@ -143,7 +143,7 @@ class ComisionController extends Controller
             return response()->json(['error' => 'No se encuentra la comision que esta buscando'], 404);
         }
 
-        return $data;
+        return response()->json($data, 200);
     }
 
     /**

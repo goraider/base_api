@@ -28,3 +28,7 @@ Route::resource('proyectos', 'ProyectoController');
 Route::resource('plantilla-personal', 'PlantillaPersonalController');
 Route::resource('subdepartamento', 'SubDepartamentoController');
 Route::resource('lugar-comision', 'LugarComisionController');
+// agregar controlador
+
+Route::resource('formato-comprobacion/{id}', 'FormatoComprobacionController');
+
